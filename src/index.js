@@ -45,6 +45,12 @@ window.addEventListener('load', (event) => {
   document.querySelectorAll('.card').forEach((card) => {
     card.addEventListener('click', () => {
       // TODO: write some code here
+      //L:
+      card.classList.toggle("turned")
+      
+
+
+      //L
       console.log(`Card clicked: ${card}`);
     });
   });
