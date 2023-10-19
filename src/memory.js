@@ -6,7 +6,7 @@ class MemoryGame {
     this.pickedCards = [];//already clicked cards
     this.pairsClicked = 0;
     this.pairsGuessed = 0;
-    //this.shuffleCards()
+    this.shuffleCards()
   }
 
   shuffleCards() {
@@ -23,37 +23,30 @@ class MemoryGame {
       let rdmInd = Math.floor(Math.random() * len);
       this.cards[len] = this.cards[rdmInd];
       this.cards[rdmInd] = temp;
-    
-    return this.cards;
+    //return this.cards;
   }
-    //return and check
-    
-
-
+    return this.cards;
   }
 
   checkIfPair(card1, card2) {
     // ... write your code here
     //check if 2 picked cards are the same
+    this.pairsClicked ++;
     if (card1 === card2){
       this.pairsGuessed ++;
-      this.pairsClicked ++;
       return true;
     }
     else {
-      this.pairsClicked ++;
       return false;
     }
-    
   }
 
   checkIfFinished() {
     // ... write your code here
-
-    
-    if(this.pairsGuessed < 12){
+    const totalPairs = this.cards.length / 2;
+    if(this.pairsGuessed < totalPairs){
       return false;
-    } else if(this.pairsGuessed >= 12) { //////Doesnt work
+    } else if(this.pairsGuessed >= totalPairs) { 
       return true;
     } 
   }
